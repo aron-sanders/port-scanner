@@ -10,9 +10,6 @@ Outputs the results to a log file.
 
 ## Instructions
 
-Run using `pytest -n auto` or `pytest -n <num of CPU cores>`. This leverages the `pytest-xdist`
-plugin and allows us to run multiple scans in parallel.
-
 To change the default port range use `--port_range=<range>`.
 To change the default configuration file name or location use `--config_file=<path to config file>`.
 
@@ -20,13 +17,16 @@ Example: `pytest -n auto --port_range=1-2000 --config_file=~/configuration/hosts
 
 Run `pytest -h` to see these options in the `custom options` section.
 
+Can also be run using `pytest -n auto` or `pytest -n <num of CPU cores>`. This leverages the `pytest-xdist`
+plugin and allows us to run multiple scans in parallel.
+
 ## Known Issues
 
 When running tests in parallel using `pytest-xdist` only one test gets logged to the external log file.
 
 ## Dependencies
 
-* Python version 3.6+
+* Python v3.6+
 * pytest
-* pytest-xdist
 * python-nmap
+* pytest-xdist
