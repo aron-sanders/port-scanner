@@ -26,6 +26,7 @@ When running tests in parallel using `pytest-xdist` only one test gets logged to
 
 ## Dependencies
 
+* Python version 3.6+
 * pytest
 * pytest-xdist
 * python-nmap
