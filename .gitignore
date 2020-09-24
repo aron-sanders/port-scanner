@@ -3,3 +3,4 @@
 *.pyc
 .pytest*
 *.log
+venv
