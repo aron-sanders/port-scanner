@@ -5,7 +5,7 @@ TCP_CONNECT_FLAG = '-sT'
 
 
 def get_allowed_ports(ip, config_file):
-    return next(item for item in config_file if item["ip"] == ip)["allowed_ports"]
+    return next(item for item in config_file if item["ip"] == ip)["allowed_ports"]  # why are we using "next" 
 
 
 def scan(ip, port_range):
@@ -38,12 +38,12 @@ def check_port_state(scanner, ip, protocol, allowed_ports):
         if port_state == 'open' and port not in allowed_ports:
             ports_as_expected = False
             invalid_ports.append(port)
-    else:
+    else:  # would work the same also without the "else" block. i am not sure this is relevant here
         if not ports_as_expected:
             logging.error(f"ports: {str(invalid_ports).strip('[]')} should not be open")
         else:
             logging.info("All ports are closed as expected")
-        assert ports_as_expected, f"ports: {str(invalid_ports).strip('[]')} should not be open"
+        assert ports_as_expected, f"ports: {str(invalid_ports).strip('[]')} should not be open"  # i would probably prefer to refactor and detach this from the "print scan results" flow..
 
 
 def test_scanner(ip, port_range, get_config_file):
